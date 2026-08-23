@@ -118,7 +118,7 @@ window.__ModuleLoader__.load({
       // root's overflow:hidden clips it to the sidebar bounds.
       '.hHd-Xa_root > :not(.uiskin-sidebar-sticker) { position: relative; z-index: 1; }',
       '.hHd-Xa_root > .uiskin-sidebar-sticker { position: absolute; left: 50%; transform: translateX(-50%); bottom: 145px; height: 96px; width: auto; object-fit: contain; z-index: 0; pointer-events: none; }',
-      '.hHd-Xa_root.hHd-Xa_collapsed > .uiskin-sidebar-sticker { height: 40px; bottom: 44px; }',
+      '.hHd-Xa_root.hHd-Xa_collapsed > .uiskin-sidebar-sticker { height: 40px; bottom: 118px; }',
       '.hHd-Xa_logoRow { height: auto; min-height: 60px; margin-bottom: 0; padding: 8px 12px; border-radius: 16px; background: var(--ocean-ice-glass); border: 1px solid var(--ocean-blue-line); box-shadow: var(--ocean-shadow), inset 0 0 0 1px var(--ocean-gold-faint); position: relative; }',
       '.hHd-Xa_logoRow::before, .hHd-Xa_logoRow::after { content: ""; position: absolute; top: 50%; width: 40px; height: 26px; background-image: url("' + FLOURISH + '"); background-size: contain; background-repeat: no-repeat; background-position: center; pointer-events: none; opacity: 0.6; }',
       '.hHd-Xa_logoRow::before { left: 4px; transform: translateY(-50%); }',
