@@ -141,11 +141,16 @@ window.__ModuleLoader__.load({
       'body[data-ds-dark-theme] .hHd-Xa_newSessionLabel { color: #dbe8f8 !important; }',
       '.hHd-Xa_root { background: linear-gradient(180deg, rgba(238, 246, 252, 0.94), rgba(222, 240, 250, 0.9)) !important; color: var(--ocean-text) !important; position: relative; overflow: hidden; }',
       // Bottom cartoon character as a BACKGROUND decoration: direct child of the
-      // root, absolute, just above the bottom wave divider (root-relative
-      // bottom 145px ≈ wave top), z-index 0 with pointer-events none — every
-      // control (root children raised to z-index 1) stays above it, and the
-      // root's overflow:hidden clips it to the sidebar bounds.
-      '.hHd-Xa_root > :not(.uiskin-sidebar-sticker) { position: relative; z-index: 1; }',
+      // Every root child except the footer is raised to z-index:1 so it paints
+      // above the background sticker (which sits at z-index:0). The footer must
+      // be EXCLUDED: the settings modal (position:fixed; z-index:1000) is nested
+      // inside .hHd-Xa_footArea, and if that node is a stacking context the
+      // modal's z-index is scoped within the footer's z-index:1 — losing to the
+      // sidebar drag handle (z-index:2, root context). With the footer at
+      // position:relative/z-index:auto it is NOT a stacking context, so the
+      // modal's z-index:1000 propagates to the root context and covers the
+      // handle (no sidebar resize while the settings dialog is open).
+      '.hHd-Xa_root > :not(.uiskin-sidebar-sticker):not(.hHd-Xa_footArea) { position: relative; z-index: 1; }',
       '.hHd-Xa_root > .uiskin-sidebar-sticker { position: absolute; left: 50%; transform: translateX(-50%); bottom: 145px; height: 96px; width: auto; object-fit: contain; z-index: 0; pointer-events: none; }',
       '.hHd-Xa_root.hHd-Xa_collapsed > .uiskin-sidebar-sticker { height: 40px; bottom: 118px; }',
       '.hHd-Xa_logoRow { height: auto; min-height: 60px; margin-bottom: 0; padding: 8px 12px; border-radius: 16px; background: var(--ocean-ice-glass); border: 1px solid var(--ocean-blue-line); box-shadow: var(--ocean-shadow), inset 0 0 0 1px var(--ocean-gold-faint); position: relative; }',
@@ -245,44 +250,36 @@ window.__ModuleLoader__.load({
       return () => { observer.disconnect(); if (img) img.remove(); };
     }
 
-    // Sun: warm radial-gradient core with a soft glow halo and eight rounded
-    // rays. Rendered as inline SVG so gradient/filter defs travel with it.
+    // Sun: crisp warm-gradient disc with a hairline rim and eight slender
+    // rounded rays. No blur halo or stray highlight — keeps it glint-free and
+    // sharp at icon size. Colored via gradient defs so it reads on any glass.
     function SunIcon() {
       return React.createElement('svg', {
         viewBox: '0 0 24 24', width: '17', height: '17', fill: 'none',
         'aria-hidden': 'true',
       },
         React.createElement('defs', null,
-          React.createElement('radialGradient', { id: 'uiskin-sun-core', cx: '50%', cy: '42%', r: '62%' },
-            React.createElement('stop', { offset: '0%', stopColor: '#fff8d9' }),
-            React.createElement('stop', { offset: '45%', stopColor: '#ffd76a' }),
-            React.createElement('stop', { offset: '100%', stopColor: '#ffb340' }),
-          ),
-          React.createElement('linearGradient', { id: 'uiskin-sun-ray', x1: '0', y1: '0', x2: '1', y2: '1' },
-            React.createElement('stop', { offset: '0%', stopColor: '#ffd76a' }),
-            React.createElement('stop', { offset: '100%', stopColor: '#ff9e3d' }),
-          ),
-          React.createElement('filter', { id: 'uiskin-sun-glow', x: '-70%', y: '-70%', width: '240%', height: '240%' },
-            React.createElement('feGaussianBlur', { stdDeviation: '1.5' }),
+          React.createElement('radialGradient', { id: 'uiskin-sun-core', cx: '42%', cy: '38%', r: '70%' },
+            React.createElement('stop', { offset: '0%', stopColor: '#fffbe6' }),
+            React.createElement('stop', { offset: '35%', stopColor: '#ffdf7e' }),
+            React.createElement('stop', { offset: '88%', stopColor: '#ffc04d' }),
+            React.createElement('stop', { offset: '100%', stopColor: '#ffab3d' }),
           ),
         ),
-        // soft halo
-        React.createElement('circle', { cx: '12', cy: '12', r: '6.4', fill: 'url(#uiskin-sun-core)', opacity: '0.32', filter: 'url(#uiskin-sun-glow)' }),
-        // core
-        React.createElement('circle', { cx: '12', cy: '12', r: '4.4', fill: 'url(#uiskin-sun-core)' }),
         // rays
-        React.createElement('g', { stroke: 'url(#uiskin-sun-ray)', strokeWidth: '1.8', strokeLinecap: 'round' },
-          React.createElement('line', { x1: '12', y1: '2.1', x2: '12', y2: '3.9' }),
-          React.createElement('line', { x1: '12', y1: '20.1', x2: '12', y2: '21.9' }),
-          React.createElement('line', { x1: '2.1', y1: '12', x2: '3.9', y2: '12' }),
-          React.createElement('line', { x1: '20.1', y1: '12', x2: '21.9', y2: '12' }),
-          React.createElement('line', { x1: '5.1', y1: '5.1', x2: '6.3', y2: '6.3' }),
-          React.createElement('line', { x1: '17.7', y1: '17.7', x2: '18.9', y2: '18.9' }),
-          React.createElement('line', { x1: '5.1', y1: '18.9', x2: '6.3', y2: '17.7' }),
-          React.createElement('line', { x1: '17.7', y1: '6.3', x2: '18.9', y2: '5.1' }),
+        React.createElement('g', { stroke: '#ffb84d', strokeWidth: '1.6', strokeLinecap: 'round' },
+          React.createElement('line', { x1: '12', y1: '1.6', x2: '12', y2: '4.4' }),
+          React.createElement('line', { x1: '12', y1: '19.6', x2: '12', y2: '22.4' }),
+          React.createElement('line', { x1: '1.6', y1: '12', x2: '4.4', y2: '12' }),
+          React.createElement('line', { x1: '19.6', y1: '12', x2: '22.4', y2: '12' }),
+          React.createElement('line', { x1: '4.64', y1: '4.64', x2: '6.64', y2: '6.64' }),
+          React.createElement('line', { x1: '17.36', y1: '17.36', x2: '19.36', y2: '19.36' }),
+          React.createElement('line', { x1: '4.64', y1: '19.36', x2: '6.64', y2: '17.36' }),
+          React.createElement('line', { x1: '17.36', y1: '6.64', x2: '19.36', y2: '4.64' }),
         ),
-        // glint
-        React.createElement('circle', { cx: '10.4', cy: '10.4', r: '1.5', fill: '#ffffff', opacity: '0.7' })
+        // disc + hairline rim
+        React.createElement('circle', { cx: '12', cy: '12', r: '4.9', fill: 'url(#uiskin-sun-core)' }),
+        React.createElement('circle', { cx: '12', cy: '12', r: '4.9', fill: 'none', stroke: '#ffcf70', strokeWidth: '0.8' })
       )
     }
 
