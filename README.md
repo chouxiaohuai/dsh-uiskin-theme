@@ -8,7 +8,9 @@ Unlike dynamic plugins (`cordis_define` defined at runtime, lost on restart), th
 
 与动态插件（`cordis_define` 现场定义、重启即丢）不同，本包以 npm 包形式装进 profile，**每次启动自动加载，重启不丢，无需人工批准**。
 
-![Blue Glass Theme 主题预览 / theme preview](assets/preview.jpg)
+![Blue Glass Theme 浅色模式预览 / light mode](assets/preview_light.jpg)
+
+![Blue Glass Theme 深色模式预览 / dark mode](assets/preview_dark.jpg)
 
 > **License / 许可证**
 > This theme is an original work and is **All Rights Reserved** — it is NOT open source.
