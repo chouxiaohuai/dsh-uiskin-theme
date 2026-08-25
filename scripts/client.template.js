@@ -121,7 +121,9 @@ window.__ModuleLoader__.load({
 
     const SIDEBAR_CSS = [
       ':root { --ocean-ice-glass: rgba(246, 251, 255, 0.6); --ocean-ice-panel: rgba(244, 250, 255, 0.82); --ocean-blue-line: rgba(120, 170, 225, 0.5); --ocean-blue-line-soft: rgba(120, 170, 225, 0.32); --ocean-gold: #c8a76a; --ocean-gold-soft: rgba(200, 167, 106, 0.5); --ocean-gold-faint: rgba(200, 167, 106, 0.28); --ocean-text: #16335e; --ocean-text-soft: #52749e; --ocean-hover: rgba(190, 220, 246, 0.5); --ocean-selected: rgba(150, 200, 245, 0.22); --ocean-shadow: 0 8px 24px rgba(40, 80, 140, 0.12); --ocean-shadow-sm: 0 2px 8px rgba(40, 80, 140, 0.08); --ds-new-session-scale: 1; }',
-      'body[data-ds-dark-theme] { --dsw-specific-sidebar-fill: rgba(238, 246, 252, 0.94); }',
+      'body[data-ds-dark-theme] { --dsw-specific-sidebar-fill: rgba(12, 26, 58, 0.88); --ocean-ice-glass: rgba(22, 44, 86, 0.62); --ocean-ice-panel: rgba(27, 54, 104, 0.78); --ocean-blue-line: rgba(110, 170, 230, 0.45); --ocean-blue-line-soft: rgba(110, 170, 230, 0.28); --ocean-gold: #e0bc72; --ocean-gold-soft: rgba(224, 188, 114, 0.55); --ocean-gold-faint: rgba(224, 188, 114, 0.3); --ocean-text: #e6effa; --ocean-text-soft: #a9c4e6; --ocean-hover: rgba(70, 120, 190, 0.32); --ocean-selected: rgba(90, 150, 220, 0.26); }',
+      'body[data-ds-dark-theme] .hHd-Xa_root { background: linear-gradient(180deg, rgba(16, 34, 70, 0.96), rgba(24, 48, 94, 0.92)) !important; }',
+      'body[data-ds-dark-theme] .hHd-Xa_newSessionLabel { color: #dbe8f8 !important; }',
       '.hHd-Xa_root { background: linear-gradient(180deg, rgba(238, 246, 252, 0.94), rgba(222, 240, 250, 0.9)) !important; color: var(--ocean-text) !important; position: relative; overflow: hidden; }',
       // Bottom cartoon character as a BACKGROUND decoration: direct child of the
       // root, absolute, just above the bottom wave divider (root-relative
