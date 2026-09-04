@@ -58,11 +58,19 @@ window.__ModuleLoader__.load({
     const OCEAN_CSS = [
       ':root { --dsh-ocean-glass: rgba(255, 255, 255, 0.62); }',
       'body[data-ds-dark-theme] { --dsh-ocean-glass: rgba(22, 38, 70, 0.5); }',
+      // DSH renamed the chat bubble class after an update (gdEzaW_bubble ->
+      // Sixlwa_bubble). The bubble now backgrounds with
+      // var(--dsw-specific-bubble), which the theme overrides to near-white, so
+      // the bubbles lost their edge and visually vanished. Restyle the NEW class
+      // with the same ocean glass; keep the old ones for backward compatibility.
+      // Use !important so it beats the app's --dsw-specific-bubble background.
+      '.Sixlwa_bubble { position: relative; ' + OCEAN_GLASS + ' }',
+      '.Sixlwa_bubble, .Sixlwa_bubble * { box-sizing: border-box; }',
       '.gdEzaW_bubble { position: relative; ' + OCEAN_GLASS + ' }',
       '[data-composer-card] { position: relative; ' + OCEAN_GLASS + ' }',
       '.Sxvs8a_root { padding: 14px 18px; border-radius: 20px; position: relative; ' + OCEAN_GLASS + ' }',
-      '.gdEzaW_bubble::before, [data-composer-card]::before, .Sxvs8a_root::before { content: ""; position: absolute; top: 1px; left: 10%; right: 10%; height: 6px; background-image: url("' + OCEAN_WAVE + '"); background-repeat: repeat-x; background-size: 48px 6px; pointer-events: none; opacity: 0.28; }',
-      '.gdEzaW_bubble::after, [data-composer-card]::after, .Sxvs8a_root::after { content: ""; position: absolute; top: 0; right: 0; bottom: 0; left: 0; border-radius: 22px; pointer-events: none; background-image: radial-gradient(circle at 88% 82%, rgba(186,230,253,0.4) 0 4px, transparent 5px), radial-gradient(circle at 8% 90%, rgba(125,211,252,0.35) 0 3px, transparent 4px), radial-gradient(circle at 92% 16%, rgba(255,255,255,0.35) 0 3px, transparent 4px); }',
+      '.Sixlwa_bubble::before, .gdEzaW_bubble::before, [data-composer-card]::before, .Sxvs8a_root::before { content: ""; position: absolute; top: 1px; left: 10%; right: 10%; height: 6px; background-image: url("' + OCEAN_WAVE + '"); background-repeat: repeat-x; background-size: 48px 6px; pointer-events: none; opacity: 0.28; }',
+      '.Sixlwa_bubble::after, .gdEzaW_bubble::after, [data-composer-card]::after, .Sxvs8a_root::after { content: ""; position: absolute; top: 0; right: 0; bottom: 0; left: 0; border-radius: 22px; pointer-events: none; background-image: radial-gradient(circle at 88% 82%, rgba(186,230,253,0.4) 0 4px, transparent 5px), radial-gradient(circle at 8% 90%, rgba(125,211,252,0.35) 0 3px, transparent 4px), radial-gradient(circle at 92% 16%, rgba(255,255,255,0.35) 0 3px, transparent 4px); }',
     ].join('\n')
 
     const FLOURISH = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 90 36'%3E%3Cpath d='M4 24 C14 14 20 14 30 24 S46 34 56 24' fill='none' stroke='rgba(120,170,225,0.55)' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M12 30 C22 20 28 20 38 30' fill='none' stroke='rgba(200,167,106,0.4)' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M72 12 L76 17 L81 19 L76 21 L72 26 L68 21 L63 19 L68 17 Z' fill='rgba(150,200,245,0.55)'/%3E%3Ccircle cx='60' cy='30' r='1.5' fill='rgba(200,167,106,0.5)'/%3E%3C/svg%3E"
