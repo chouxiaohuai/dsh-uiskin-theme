@@ -192,7 +192,16 @@ window.__ModuleLoader__.load({
     ].join('\n')
 
     const FOOTER_CSS = [
-      '.qDHVXG_fade { background: transparent !important; }',
+      // The session-list scroll area has a 24px bottom "fade" that blends its
+      // content into a SOLID fill color (var(--dsw-specific-sidebar-fill)). Our
+      // sidebar root uses a GRADIENT background, so that solid fade endpoint
+      // shows a hard edge at the fade's bottom border — the visible "shadow
+      // line" above the cartoon. Make any such *_fade element transparent so
+      // the root gradient shows through seamlessly. Matches by class-name
+      // suffix (class hashes change across DSH versions — qDHVXG_fade,
+      // bhn1Oq_fade, etc.).
+      '[class$="_fade"] { background: transparent !important; background-image: none !important; }',
+      '.qDHVXG_fade { background: transparent !important; background-image: none !important; }',
       '.hHd-Xa_footArea, .hHd-Xa_footerActions, .hHd-Xa_settingsArea { background: transparent; border: none; box-shadow: none; }',
       '.Nqubda_layer { margin: 0; order: 1; }',
       '.hHd-Xa_settingsArea { position: relative; margin-top: 0; padding: 0 0 10px; }',
