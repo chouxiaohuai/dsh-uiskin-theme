@@ -130,12 +130,15 @@ window.__ModuleLoader__.load({
     // (label-tertiary / label-caption), which read as a washed-out grey:
     //   .Q51KRG_trigger          — the "用时 {duration}" clock button under a reply
     //   .EvIC1a_turnStatusClock  — the live elapsed seconds beside 深度求索中…
-    // Deepen them to the theme's secondary label colour so the time is easier to
-    // read; the token is already mode-aware (#46608c light / #a7bfe3 dark).
+    // Deepen them to the theme's label colours so the time is easier to read.
+    // The live seconds next to 深度求索中… get the PRIMARY label colour (the
+    // strongest contrast in the ramp) plus a medium weight, so the running time
+    // is clearly legible; the settled 用时 label only needs the secondary tone.
+    // Both tokens are mode-aware (#0d2a56 / #46608c light, #eef4fd / #a7bfe3 dark).
     const TURN_TIME_CSS = [
       '.Q51KRG_trigger { color: var(--dsw-alias-label-secondary) !important; }',
       '.Q51KRG_trigger:hover { color: var(--dsw-alias-label-primary) !important; }',
-      '.EvIC1a_turnStatusClock { color: var(--dsw-alias-label-secondary) !important; -webkit-text-fill-color: var(--dsw-alias-label-secondary) !important; }',
+      '.EvIC1a_turnStatusClock { color: var(--dsw-alias-label-primary) !important; -webkit-text-fill-color: var(--dsw-alias-label-primary) !important; font-weight: 500 !important; }',
     ].join('\n')
 
     const PERMISSION_CSS = [
