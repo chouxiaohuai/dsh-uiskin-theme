@@ -1,6 +1,6 @@
 {
   "name": "uiskin-theme",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Blue Glass Theme (ocean fantasy) for DeepSeek Harness Web — a static profile bundle. 海洋幻想主题：海洋背景、玻璃气泡、海洋侧边栏、鲸鱼设置按钮、炫彩模型文字。",
   "type": "module",
   "main": "lib/index.js",
