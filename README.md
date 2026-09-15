@@ -86,8 +86,8 @@ To restyle the theme, edit the CSS / components in `scripts/client.template.js`,
 
 - Assets are inlined as base64 into `lib/client.js` (~1.1 MB) and loaded once, suitable for small skin images. To shrink it, compress the images under `assets/` first and rebuild.
   - 素材以 base64 内联在 `lib/client.js`（约 1.1 MB），加载一次即可，适合皮肤类小图片。若想更小，可先把 `assets/` 里的图压缩再构建。
-- DSH is currently a `0.1.2-rc.1` pre-release; the plugin API (`dsh.bundle` / `dsh.client` / slots / theme services) and some client class names may change between releases. When upgrading DSH, a few theme elements (bubbles, sidebar) can briefly lose styling if their CSS class hashes change — this theme tracks those renames and adds the matching selectors. If you hit compatibility issues after upgrading DSH, watch this repo's updates.
-  - DSH 目前是 `0.1.2-rc.1` 预发布版本，插件 API（`dsh.bundle` / `dsh.client` / slots / theme 服务）及部分客户端类名可能随版本变化。升级 DSH 后，个别主题元素（气泡、侧栏）可能因类名 hash 变化而暂时失去样式——本主题会跟踪这些改名并补充对应选择器；如升级后遇兼容问题，关注本仓库的更新。
+- DSH is currently a `0.1.5-rc.1` pre-release; the plugin API (`dsh.bundle` / `dsh.client` / slots / theme services) and some client class names may change between releases. When upgrading DSH, a few theme elements (bubbles, sidebar) can briefly lose styling if their CSS class hashes change — this theme tracks those renames and adds the matching selectors. If you hit compatibility issues after upgrading DSH, watch this repo's updates.
+  - DSH 目前是 `0.1.5-rc.1` 预发布版本，插件 API（`dsh.bundle` / `dsh.client` / slots / theme 服务）及部分客户端类名可能随版本变化。升级 DSH 后，个别主题元素（气泡、侧栏）可能因类名 hash 变化而暂时失去样式——本主题会跟踪这些改名并补充对应选择器；如升级后遇兼容问题，关注本仓库的更新。
 - This package only depends on `@deepseek-ai/cordis` (peer) and `react` (peer); no `allowBuilds` approval is needed to run its build scripts.
   - 本包只依赖 `@deepseek-ai/cordis`（peer）与 `react`（peer），无需 `allowBuilds` 放行构建脚本。
 
