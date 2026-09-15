@@ -1,8 +1,8 @@
 # uiskin-theme — Blue Glass Theme / 海洋幻想主题
 
-**uiskin-theme** is a **static plugin bundle (profile bundle)** for DeepSeek Harness Web: a crisp ocean background, glass bubbles, an ocean-styled sidebar (with a gold-gradient「HARNESS」wordmark and a bottom cartoon character), a whale settings button, gradient model text, and a one-click **light/dark theme toggle** on the conversation header.
+**uiskin-theme** is a **static plugin bundle (profile bundle)** for DeepSeek Harness Web: a crisp ocean background, glass bubbles, an ocean-styled sidebar (with a gold-gradient「HARNESS」wordmark and a bottom cartoon character), a whale settings button, gradient model text, a one-click **light/dark theme toggle** on the conversation header, and a **purple live thinking-time counter** beside 深度求索中….
 
-**uiskin-theme** 是 DeepSeek Harness Web 的**静态插件包（profile bundle）**：清澈的海洋背景、玻璃气泡、海洋侧边栏（含金色渐变「HARNESS」字标与底部卡通角色）、鲸鱼设置按钮、渐变模型文字，以及会话头部一键切换**明/暗主题**按钮。
+**uiskin-theme** 是 DeepSeek Harness Web 的**静态插件包（profile bundle）**：清澈的海洋背景、玻璃气泡、海洋侧边栏（含金色渐变「HARNESS」字标与底部卡通角色）、鲸鱼设置按钮、渐变模型文字、会话头部一键切换**明/暗主题**按钮，以及「深度求索中…」旁边醒目的**紫色实时思考秒数**。
 
 Unlike dynamic plugins (`cordis_define` defined at runtime, lost on restart), this package is installed into the profile as an npm package: **it loads automatically on every start, survives restarts, and needs no manual approval**.
 
